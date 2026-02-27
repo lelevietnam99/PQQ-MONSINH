@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lưu Trữ Đơn Thỉnh Nguyện Nhập Môn</title>
+    
+    <link rel="icon" href="logo.png" type="image/x-icon">
+    
+    <style>
+        :root {
+            /* Tông màu đỏ sậm võ thuật */
+            --primary-color: #8b0000; 
+            --bg-color: #f4f4f9;
+            --text-color: #333;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 20px;
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        h1 {
+            text-align: center;
+            color: var(--primary-color);
+            border-bottom: 2px solid var(--primary-color);
+            padding-bottom: 15px;
+            margin-bottom: 25px;
+        }
+        .search-bar {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        input[type="text"] {
+            width: 100%;
+            max-width: 500px;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 16px;
+            box-sizing: border-box;
+        }
+        
+        /* Chuyển sang giao diện dạng Lưới (Grid) để hiện ảnh cho đẹp */
+        .grid-container {
+            display: grid;
+            /* Tự động chia cột, mỗi thẻ ảnh rộng tối thiểu 300px */
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 25px;
+        }
+        .card {
+            background: #fff;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            text-align: center;
+            transition: transform 0.3s;
+        }
+        .card:hover {
+            transform: translateY(-5px); /* Hiệu ứng nổi lên khi di chuột vào */
+            box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+        }
+        .student-name {
+            font-size: 18px;
+            font-weight: bold;
+            color: var(--primary-color);
+            margin-bottom: 5px;
+        }
+        .student-year {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 15px;
+        }
+        .scan-image {
+            width: 100%;
+            height: auto;
+            border-radius: 4px;
+            border: 1px solid #ddd;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Hồ Sơ Đơn Thỉnh Nguyện Nhập Môn</h1>
+    
+    <div class="search-bar">
+        <input type="text" id="searchInput" onkeyup="filterCards()" placeholder="🔍 Tìm kiếm theo tên môn sinh...">
+    </div>
+
+    <div class="grid-container" id="docGrid">
+        
+        <div class="card">
+            <div class="student-name">Trương Minh Dũng & Nguyễn Thị Ngoan</div>
+            <div class="student-year">Năm nhập môn: T1/2026</div>
+            <img src="Anh Dũng & Chị Ngoan - 1.jpg" alt="Đơn của Nguyễn Văn A" class="scan-image" loading="lazy">
+            <img src="Anh Dũng & Chị Ngoan - 2.jpg" alt="Đơn của Nguyễn Văn A" class="scan-image" loading="lazy">
+            <img src="Anh Dũng & Chị Ngoan - 3.jpg" alt="Đơn của Nguyễn Văn A" class="scan-image" loading="lazy">
+            <img src="Anh Dũng & Chị Ngoan - 4.jpg" alt="Đơn của Nguyễn Văn A" class="scan-image" loading="lazy">
+            <img src="Anh Dũng & Chị Ngoan - 5.jpg" alt="Đơn của Nguyễn Văn A" class="scan-image" loading="lazy">
+        </div>
+
+        <div class="card">
+            <div class="student-name">Ngô Minh Vượng</div>
+            <div class="student-year">Năm nhập môn: T2/2026</div>
+            <img src="Ngô Minh Vượng - 1.jpg" alt="Đơn của Trần Thị B" class="scan-image" loading="lazy">
+            <img src="Ngô Minh Vượng - 2.jpg" alt="Đơn của Trần Thị B" class="scan-image" loading="lazy">
+            <img src="Ngô Minh Vượng - 3.jpg" alt="Đơn của Trần Thị B" class="scan-image" loading="lazy">
+            <img src="Ngô Minh Vượng - 4.jpg" alt="Đơn của Trần Thị B" class="scan-image" loading="lazy">
+        </div>
+
+        <div class="card">
+            <div class="student-name">Phạm Ngọc Thiên Thanh</div>
+            <div class="student-year">Năm nhập môn: T2/2026</div>
+            <img src="Phạm Ngọc Thiên Thanh - 1.jpg" alt="Đơn của Trần Thị B" class="scan-image" loading="lazy">
+            <img src="Phạm Ngọc Thiên Thanh - 2.jpg" alt="Đơn của Trần Thị B" class="scan-image" loading="lazy">
+            <img src="Phạm Ngọc Thiên Thanh - 3.jpg" alt="Đơn của Trần Thị B" class="scan-image" loading="lazy">
+            <img src="Phạm Ngọc Thiên Thanh - 4.jpg" alt="Đơn của Trần Thị B" class="scan-image" loading="lazy">
+        </div>
+
+        <div class="card">
+            <div class="student-name">Thân Thị Thúy Nguyên</div>
+            <div class="student-year">Năm nhập môn: T1/2026</div>
+            <img src="Thân Thị Thúy Nguyên - 1.jpg" alt="Đơn của Trần Thị B" class="scan-image" loading="lazy">
+            <img src="Thân Thị Thúy Nguyên - 2.jpg" alt="Đơn của Trần Thị B" class="scan-image" loading="lazy">
+            <img src="Thân Thị Thúy Nguyên - 3.jpg" alt="Đơn của Trần Thị B" class="scan-image" loading="lazy">
+        </div>
+        
+        </div>
+</div>
+
+<script>
+    // Cập nhật lại script tìm kiếm để lọc theo thẻ Card
+    function filterCards() {
+        let input = document.getElementById("searchInput").value.toUpperCase();
+        let grid = document.getElementById("docGrid");
+        let cards = grid.getElementsByClassName("card");
+
+        for (let i = 0; i < cards.length; i++) {
+            let nameElement = cards[i].getElementsByClassName("student-name")[0];
+            if (nameElement) {
+                let txtValue = nameElement.textContent || nameElement.innerText;
+                if (txtValue.toUpperCase().indexOf(input) > -1) {
+                    cards[i].style.display = ""; // Hiện nếu tên khớp
+                } else {
+                    cards[i].style.display = "none"; // Ẩn nếu tên không khớp
+                }
+            }       
+        }
+    }
+</script>
+
+</body>
+</html>
